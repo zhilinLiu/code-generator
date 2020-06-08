@@ -1,0 +1,113 @@
+
+*{
+  font-family: 'Electrolize', sans-serif;
+  background: #34495e;
+}
+
+.container {
+  background: #1abc9c;
+  border:2px inset white;
+  width:450px;
+  height:500px;
+  position:absolute;left:40%;top:100px;
+  transform: perspective(1000px) rotateY(20deg);
+  transition: 0.1s;
+}
+
+.container:hover {
+  transition: 0.1s;
+  transform: rotateY(0deg);
+  border:2px inset skyblue;
+}
+
+input {
+  margin-left:75px;
+  margin-top:20px;
+  width:300px;
+  height:55px;
+  transform:scale(1);
+  transition:1s;
+  resize:none;
+  background: #2c3e50;
+  border:2px skyblue solid;
+  text-align:center;
+  color:white;
+  font-size:20px
+}
+
+textarea {
+  margin-left:75px;
+  margin-top:20px;
+  width:300px;
+  height:100px;
+  transform:scale(1);
+  transition:0.3s;
+  resize:none;
+  background: #2c3e50;
+  border:2px skyblue solid;
+  text-align:center;
+  color:white;
+  font-size:25px
+}
+
+textarea:hover, input:hover {
+  transform:scale(1.1);
+  transition:0.3s;
+  border:2px white solid;
+}
+
+::-webkit-input-placeholder {
+  text-align:center;
+}
+
+h1 {
+  background:#1abc9c;
+  width:300px;
+  border-bottom:2px outset white;
+  margin-left:75px;
+  color:white;
+  transition:0.3s;
+  text-align:center
+}
+
+h1:hover {
+  background:#1abc9c;
+  border-bottom:2px outset black;
+  color:black;
+  transition:0.3s;
+}
+
+a {
+  margin-left:75px;
+  margin-top:15px;
+  float: left;
+  text-align:center;
+  width:300px;
+  height: 50px;
+  font: 2.5em 'Electrolize', sans-serif;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #0090C0;
+  border:3px skyblue solid;
+  transition: 0.35s ease all;
+}
+
+a:hover {
+  color: #0090C0;
+  background: #fff;
+  border:3px skyblue solid;
+  transform:scale(1.1);
+  transition:0.3s;
+}
+
+.outer {
+  position: fixed;
+  background: url("ctw-background-projects-flat.jpg");
+  background-position: center center;
+  transform: scale(1.1);
+  display: table;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
