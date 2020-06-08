@@ -122,4 +122,21 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
         }
         return this;
     }
+
+    @Override
+    protected boolean isCreate(FileType fileType, String filePath) {
+        ConfigBuilder cb = getConfigBuilder();
+        // 自定义判断
+        InjectionConfig ic = cb.getInjectionConfig();
+        if (null != ic && null != ic.getFileCreate()) {
+            return ic.getFileCreate().isCreate(cb, fileType, filePath);
+        }
+        // 全局判断【默认】
+        File file = new File(filePath);
+        boolean exist = file.exists();
+        if (!exist) {
+            // do nothing
+        }
+        return !exist;
+    }
 }
