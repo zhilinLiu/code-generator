@@ -1,4 +1,4 @@
-package cn.com.kando.base.generater.config;
+package com.github.generater.config;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.InjectionConfig;

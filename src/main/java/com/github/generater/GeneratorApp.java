@@ -1,4 +1,4 @@
-package cn.com.kando.base.generater;
+package com.github.generater;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

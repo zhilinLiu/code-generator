@@ -1,7 +1,6 @@
-package cn.com.kando.base.generater.service;
+package com.github.generater.service;
 
-import cn.com.kando.base.generater.ao.CodeAO;
-import cn.com.kando.base.generater.controller.CodeController;
+import com.github.generater.ao.CodeAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 /**
  * @author : zhilin

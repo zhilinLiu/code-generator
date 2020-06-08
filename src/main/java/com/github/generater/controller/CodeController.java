@@ -1,15 +1,8 @@
-package cn.com.kando.base.generater.controller;
+package com.github.generater.controller;
 
-import cn.com.kando.base.generater.ao.CodeAO;
-import cn.com.kando.base.generater.config.InjectionAutoConfig;
-import cn.com.kando.base.generater.service.GenerateTrigger;
-import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import com.github.generater.ao.CodeAO;
+import com.github.generater.service.GenerateTrigger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +11,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 /**
  * @author : zhilin

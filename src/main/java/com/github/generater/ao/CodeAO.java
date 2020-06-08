@@ -1,4 +1,4 @@
-package cn.com.kando.base.generater.ao;
+package com.github.generater.ao;
 
 import lombok.Data;
 
