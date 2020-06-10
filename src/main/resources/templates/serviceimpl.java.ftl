@@ -47,8 +47,8 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     @Override
     public Page select(PageQuery pageQuery){
         //分页
-        Page<KdSysUser> page = new Page<>(pageQuery.getPageNo(), pageQuery.getPageSize());
-        QueryWrapper<KdSysUser> wrapper = new QueryWrapper<KdSysUser>();
+        Page<${entity}> page = new Page<>(pageQuery.getPageNo(), pageQuery.getPageSize());
+        QueryWrapper<${entity}> wrapper = new QueryWrapper<${entity}>();
 
         //如果有模糊查询字段
         if(!"".equals(pageQuery.getKeyword())){

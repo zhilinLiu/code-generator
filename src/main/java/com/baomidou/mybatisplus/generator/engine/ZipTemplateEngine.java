@@ -93,7 +93,7 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
                 }
                 // MpMapper.java
                 if (null != tableInfo.getMapperName() && null != pathInfo.get(ConstVal.MAPPER_PATH)) {
-                    String mapperFile = String.format((pathInfo.get(ConstVal.MAPPER_PATH) + File.separator + tableInfo.getMapperName() + suffixJavaOrKt()), entityName);
+                    String mapperFile = String.format((pathInfo.get(ConstVal.MAPPER_PATH).replaceAll("mapper","dao") + File.separator + tableInfo.getMapperName() + suffixJavaOrKt()), entityName);
                     writer(objectMap, templateFilePath(template.getMapper()), mapperFile);
                 }
                 // MpMapper.xml

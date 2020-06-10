@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com</groupId>
-    <artifactId>springdataes</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>code-generater</artifactId>
+    <version>1.1.1-SNAPSHOT</version>
     <name>codeGenerator</name>
     <description>Demo project for Spring Boot</description>
 
