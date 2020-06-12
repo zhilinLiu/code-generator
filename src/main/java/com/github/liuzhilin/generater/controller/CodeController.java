@@ -1,7 +1,7 @@
-package com.github.generater.controller;
+package com.github.liuzhilin.generater.controller;
 
-import com.github.generater.ao.CodeAO;
-import com.github.generater.service.GenerateTrigger;
+import com.github.liuzhilin.generater.ao.CodeAO;
+import com.github.liuzhilin.generater.service.GenerateTrigger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

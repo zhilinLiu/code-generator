@@ -1,4 +1,4 @@
-package com.github.generater;
+package com.github.liuzhilin.generater;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

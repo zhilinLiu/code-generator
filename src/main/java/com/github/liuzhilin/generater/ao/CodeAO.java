@@ -1,4 +1,4 @@
-package com.github.generater.ao;
+package com.github.liuzhilin.generater.ao;
 
 import lombok.Data;
 

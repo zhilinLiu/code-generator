@@ -1,4 +1,4 @@
-package com.github.generater.config;
+package com.github.liuzhilin.generater.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;

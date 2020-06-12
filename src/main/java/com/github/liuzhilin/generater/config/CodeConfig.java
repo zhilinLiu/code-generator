@@ -1,4 +1,4 @@
-package com.github.generater.config;
+package com.github.liuzhilin.generater.config;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
