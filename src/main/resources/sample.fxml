@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="835.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ui.sample.Controller">
+   <children>
+      <Text layoutX="64.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="作者名称" wrappingWidth="80.240234375" />
+      <TextField fx:id="author" layoutX="187.0" layoutY="75.0" />
+      <Text layoutX="64.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="数据库连接" wrappingWidth="71.240234375" />
+      <TextField fx:id="dataSourceUrl" layoutX="187.0" layoutY="107.0" />
+      <Text layoutX="64.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="数据库账号" />
+      <TextField fx:id="dataSourceName" layoutX="187.0" layoutY="142.0" />
+      <Text layoutX="64.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="数据库密码" />
+      <TextField fx:id="dataSourcePassword" layoutX="187.0" layoutY="177.0" />
+      <Text layoutX="64.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="包路径" />
+      <TextField fx:id="referencePath" layoutX="187.0" layoutY="209.0" />
+      <Text layoutX="64.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="模块名" />
+      <TextField fx:id="moduleName" layoutX="187.0" layoutY="240.0" />
+      <Text layoutX="64.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="表名" />
+      <TextField fx:id="tableName" layoutX="187.0" layoutY="277.0" />
+      <Text layoutX="64.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="输出路径" />
+      <TextField fx:id="outPath" layoutX="187.0" layoutY="309.0" />
+      <Button fx:id="button" layoutX="61.0" layoutY="366.0" mnemonicParsing="false" onAction="#showDateTime" text="生成代码" />
+   </children>
+</Pane>
