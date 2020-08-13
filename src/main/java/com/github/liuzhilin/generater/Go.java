@@ -14,6 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.ui.sample.Controller.JAR_PATH;
+
 /**
  * @author : zhilin
  * @date : 2020/08/12
@@ -25,8 +27,8 @@ public class Go {
                 "jdbc:mysql://localhost:3306/kando_base?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai",
                 "root",
                 "root",
-                "com.kando",
-                "test",
+                    "com.kando",
+                    "test",
                 "kd_sys_user",
                 "d://test1.zip");
     }

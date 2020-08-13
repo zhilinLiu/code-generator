@@ -4,18 +4,28 @@ import com.github.liuzhilin.generater.Go;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-    public static String dataPath= Main.class.getResource("/data.properties").toString().substring(5);
+    public static HashMap<String,Object> MAP= new HashMap<>();
+
+    public static String JAR_PATH=Controller.class.getProtectionDomain().getCodeSource().getLocation()
+            .getPath()
+            .substring(1)
+            .replace("/app/code_generater.jar","");
+    private String dataPath;
+    
     @FXML
     private Button button;
     @FXML
@@ -34,9 +44,17 @@ public class Controller implements Initializable {
     private TextField tableName;
     @FXML
     private TextField outPath;
+    @FXML
+    private TextArea textArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        String path = this.getClass().getProtectionDomain().getCodeSource().getLocation().getPath();
+
+        MAP.put("areaText",textArea);
+
+        this.dataPath = JAR_PATH+"/data.properties";
+      
         Properties properties = new Properties();
         try {
             properties.load(new FileInputStream(dataPath));
@@ -53,7 +71,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void showDateTime(ActionEvent event) throws FileNotFoundException {
+    public void showDateTime(ActionEvent event) {
         String authorV=author.getCharacters().toString();
         String dataSourceUrlV = dataSourceUrl.getCharacters().toString();
         String dataSourceNameV = dataSourceName.getCharacters().toString();
@@ -71,13 +89,11 @@ public class Controller implements Initializable {
         properties.setProperty("referencePathV",referencePathV);
         properties.setProperty("moduleNameV",moduleNameV);
         properties.setProperty("tableNameV",tableNameV);
-        properties.setProperty("outPathV",outPath.toString());
+        properties.setProperty("outPathV",outPath.getCharacters().toString());
         try {
             FileOutputStream outputStream = new FileOutputStream(new File(dataPath));
             properties.store(outputStream,"配置文件");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Go go = new Go();
@@ -90,9 +106,21 @@ public class Controller implements Initializable {
                     moduleNameV,
                     tableNameV,
                     outPathV);
-        } catch (IOException e) {
-            e.printStackTrace();
+            alert("代码生成完毕");
+        } catch (Exception e) {
+            alert(e.getMessage());
         }
+
     }
 
+    private void alert(String msg){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+
+
+    private void println(String msg){
+        textArea.appendText(msg+"\n");
+    }
 }

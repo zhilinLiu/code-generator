@@ -9,14 +9,19 @@ import com.baomidou.mybatisplus.generator.config.TemplateConfig;
 import com.baomidou.mybatisplus.generator.config.builder.ConfigBuilder;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.FileType;
+import com.ui.util.SOUT;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
+import static com.ui.sample.Controller.JAR_PATH;
+import static com.ui.sample.Controller.MAP;
 
 /**
  * @author : zhilin
@@ -41,7 +46,11 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
         super.init(configBuilder);
         configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
         configuration.setDefaultEncoding(ConstVal.UTF8);
-        configuration.setClassForTemplateLoading(FreemarkerTemplateEngine.class, StringPool.SLASH);
+        try {
+            configuration.setDirectoryForTemplateLoading(new File(JAR_PATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 
@@ -51,12 +60,16 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
         ZipEntry zipEntry = new ZipEntry(outputFile);
         zot.putNextEntry(zipEntry);
         Template template = configuration.getTemplate(templatePath);
-        try (ByteArrayOutputStream dataStream = new ByteArrayOutputStream()) {
+        try  {
+            ByteArrayOutputStream dataStream = new ByteArrayOutputStream();
             template.process(objectMap, new OutputStreamWriter(dataStream, ConstVal.UTF8));
             zot.write(dataStream.toByteArray());
+        }catch (Exception e){
+            SOUT.println(e.getMessage());
         }
         zot.closeEntry();
         logger.debug("模板:" + templatePath + ";  文件:" + outputFile);
+        SOUT.println("模板:" + templatePath + ";  文件:" + outputFile);
     }
 
     @Override
@@ -93,7 +106,7 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
                 }
                 // MpMapper.java
                 if (null != tableInfo.getMapperName() && null != pathInfo.get(ConstVal.MAPPER_PATH)) {
-                    String mapperFile = String.format((pathInfo.get(ConstVal.MAPPER_PATH).replaceAll("mapper","dao") + File.separator + tableInfo.getMapperName() + suffixJavaOrKt()), entityName);
+                    String mapperFile = String.format((pathInfo.get(ConstVal.MAPPER_PATH).replaceAll("mapper", "dao") + File.separator + tableInfo.getMapperName() + suffixJavaOrKt()), entityName);
                     writer(objectMap, templateFilePath(template.getMapper()), mapperFile);
                 }
                 // MpMapper.xml
@@ -119,6 +132,7 @@ public class ZipTemplateEngine extends AbstractTemplateEngine {
             }
         } catch (Exception e) {
             logger.error("无法创建文件，请检查配置信息！", e);
+            SOUT.println(e.getMessage());
         }
         return this;
     }
